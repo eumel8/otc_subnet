@@ -1,5 +1,19 @@
 ---
 - hosts: localhost
-  remote_user: root
+  gather_facts: no
+  vars_files:
+   - "vars/tenant.yml"
+  vars:
+    # Subnet
+    availability_zone: "{{ default.availability_zone }}"
+    vpc_name: "{{ default.vpc_name }}"
+    vpc_net: "{{ default.vpc_net }}"
+    subnet_name: "{{ default.subnet_name }}"
+    subnet_net: "{{ default.subnet_net }}"
+    subnet_gateway: "{{ default.subnet_gateway }}"
+    subnet_dhcp_enable: "{{ default.subnet_dhcp_enable }}"
+    subnet_primary_dns: "{{ default.subnet_primary_dns }}"
+    subnet_secondary_dns: "{{ default.subnet_secondary_dns }}"
   roles:
-    - otc_subnet
+    - role: "otc_auth"
+    - role: "otc_subnet"
