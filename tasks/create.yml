@@ -24,5 +24,6 @@
     - subnet_name is defined
     - not subnet_id or subnet_id is undefined
 
-- debug:
+- name: subnet
+  debug:
     msg: "{{ subnet }}"

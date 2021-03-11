@@ -20,5 +20,6 @@
   changed_when: false
   when: subnet_id is defined and subnet_id|length != 0
 
-- debug:
+- name: subnet
+  debug:
     msg: "{{ subnet }}"

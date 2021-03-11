@@ -19,5 +19,6 @@
   when:
     - subnet_id is defined
 
-- debug:
+- name: subnetdetail
+  debug:
     msg: "{{ subnetdetail.json }}"

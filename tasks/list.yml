@@ -14,5 +14,6 @@
   until: subnetlist.status == 200
   changed_when: false
 
-- debug:
+- name: subnetlist
+  debug:
     msg: "{{  subnetlist.json }}"
