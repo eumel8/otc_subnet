@@ -8,7 +8,7 @@
     url: "{{ AUTH_URL_VPC }}/v1/{{ PROJECT_ID }}/subnets"
     method: POST
     body_format: raw
-    return_content: yes
+    return_content: true
     follow_redirects: "{{ uri_follow_redirects }}"
     validate_certs: "{{ uri_validate_certs }}"
     headers:
@@ -24,5 +24,6 @@
     - subnet_name is defined
     - not subnet_id or subnet_id is undefined
 
-- debug:
+- name: subnet
+  debug:
     msg: "{{ subnet }}"
